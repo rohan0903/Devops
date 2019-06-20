@@ -1,4 +1,4 @@
-package com.example.javamavenjunithelloworld;
+package *;
 
 import com.example.javamavenjunithelloworld.TestingSecurityManager.TestExitException;
 import org.junit.jupiter.api.AfterAll;
