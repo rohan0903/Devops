@@ -7,10 +7,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @EnableAutoConfiguration
 public class Example {
-
-    
-    
-
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Example.class, args);
         UserInput input = new UserInput();
@@ -18,9 +14,9 @@ public class Example {
     }
 }
  class UserInput {
-      public void name() {
-       @RequestMapping("/")
-    
+     
+      public String name() {
+      
         return "Hello World - v3!";
       
     }
