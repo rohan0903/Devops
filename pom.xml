@@ -30,6 +30,11 @@
             <artifactId>jsch</artifactId>
             <version>0.1.55</version>
         </dependency>
+	<dependency>
+            <groupId>org.codehaus.cargo</groupId>
+            <artifactId>cargo-maven2-plugin</artifactId>
+            <version>1.7.7</version>
+      </dependency>
    
     </dependencies>
     <build>
