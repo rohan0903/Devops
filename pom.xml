@@ -72,6 +72,26 @@
 					</execution>
 				</executions>
 			</plugin>
+		<plugin>
+                                <groupId>org.codehaus.cargo</groupId>
+                                <artifactId>cargo-maven2-plugin</artifactId>
+                                <version>1.1.3</version>
+                                <configuration>
+                                        <container>
+                                                <containerId>jboss7x</containerId>
+                                                <type>remote</type>
+                                        </container>
+                                </configuration>
+                                <executions>
+                                        <execution>
+                                                <id>deploy</id>
+                                                <phase>install</phase>
+                                                <goals>
+                                                        <goal>deploy</goal>
+                                                </goals>
+                                        </execution>
+                                </executions>
+                        </plugin>
         </plugins>
     </build>
 </project>
