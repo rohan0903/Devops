@@ -72,32 +72,31 @@
 					</execution>
 				</executions>
 			</plugin>
-		  <plugin>
-           		 <groupId>org.apache.maven.plugins</groupId>
-           		 <artifactId>maven-war-plugin</artifactId>
-             		 <version>2.6</version>
-            		 <configuration>
-                 	 <webXml>WebContent\WEB-INF\web.xml</webXml>
-                        <webResources>
-                               <resource>
-                                      <directory>${project.basedir}\WebContent\WEB-INF</directory>
-                                      <filtering>true</filtering>
-                        	      <targetPath>WEB-INF</targetPath>
-                               <includes>
-                                      <include>**/*.xml</include>
-                               </includes>
-                                </resource>
-                              <resource>
-                                      <directory>${project.basedir}\WebContent\WEB-INF\jsp</directory>
-                                      <filtering>true</filtering>
-                                      <targetPath>WEB-INF\jsp</targetPath>
-                                      <includes>
-                              <include>**/*.jsp</include>
-                              </includes>
-                    </resource>
-                    </webResources>
-            </configuration>
-        </plugin>
+		<plugin>
+  <groupId>org.codehaus.cargo</groupId>
+  <artifactId>cargo-maven2-plugin</artifactId>
+  <version>${cargo.plugin.version}</version>
+  <configuration>
+    <container>
+      <containerId>jboss7x</containerId>
+      <type>remote</type>
+    </container>
+    <configuration>
+      <type>runtime</type>
+      <properties>
+        <cargo.hostname>production27</cargo.hostname>
+        <cargo.jboss.management-native.port>19999</cargo.jboss.management-native.port>
+      </properties>
+    </configuration>
+  </configuration>
+  <dependencies>
+    <dependency>
+      <groupId>org.jboss.as</groupId>
+      <artifactId>jboss-as-controller-client</artifactId>
+      <version>7.0.2.Final</version>
+    </dependency>
+  </dependencies>
+</plugin>
 		<plugin>
                                 <groupId>org.codehaus.cargo</groupId>
                                 <artifactId>cargo-maven2-plugin</artifactId>
