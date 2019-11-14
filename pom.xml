@@ -43,6 +43,18 @@
              </dependency>
    
     </dependencies>
+	<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>ip-172-31-0-131-releases</name>
+        <url>http://108.128.114.32:8082/artifactory/Jenkins-snapshot</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>ip-172-31-0-131-snapshots</name>
+        <url>http://108.128.114.32:8082/artifactory/Jenkins-snapshot</url>
+    </snapshotRepository>
+</distributionManagement>
     <build>
         <plugins>
             <plugin>
