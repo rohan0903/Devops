@@ -8,7 +8,7 @@ archiveArtifacts 'target/*.jar'
 stage('nexus artifact uploader')
 //nexusartifactUploader artifacts: [[artifactId: 'myproject-0.0.1-SNAPSHOT', classifier: '', file: '/var/lib/jenkins/workspace/Spring_boot_Pipeline/target/myproject-0.0.1-SNAPSHOT.jar', type: 'jar']], credentialsId: '4e4d43ee-7c26-459f-a5c2-b36a6896266e', groupId: 'com.cg', nexusUrl: '34.245.61.112:8000', nexusVersion: 'nexus3', protocol: 'http', repository: 'Springboot', version: '1.0'
 stage('jfrog artifact uploader')
-bat label: '', script: 'curl -X PUT -u u:p -T myproject-0.0.1-SNAPSHOT.jar "http://34.248.32.208:8000/artifactory/libs-release-local/myproject-0.0.1-SNAPSHOT.jar"'
+sh label: '', script: 'curl -X PUT -u u:p -T myproject-0.0.1-SNAPSHOT.jar "http://34.248.32.208:8000/artifactory/libs-release-local/myproject-0.0.1-SNAPSHOT.jar"'
 }
 
     
