@@ -9,7 +9,7 @@ archiveArtifacts 'target/*.jar'
 //nexusartifactUploader artifacts: [[artifactId: 'myproject-0.0.1-SNAPSHOT', classifier: '', file: '/var/lib/jenkins/workspace/Spring_boot_Pipeline/target/myproject-0.0.1-SNAPSHOT.jar', type: 'jar']], credentialsId: '4e4d43ee-7c26-459f-a5c2-b36a6896266e', groupId: 'com.cg', nexusUrl: '34.245.61.112:8000', nexusVersion: 'nexus3', protocol: 'http', repository: 'Springboot', version: '1.0'
 stage('jfrog artifact uploader')
 rtMaven.tool= 'Maven-3.6.3'
-rtMaven.Deployer releaseRepo: 'libs-release-local' , snapshotRepo: 'libs-snapshot-local' , server: server
+rtMaven.deployer releaseRepo: 'libs-release-local' , snapshotRepo: 'libs-snapshot-local' , server: server
 rtMaven.resolver releaseRepo:'libs-release' , snapshotRepo: 'libs-snapshot' , server: server
 rtMaven.deployer.artifactDeploymentPatterns.addExclude("pom.xml")
 buildInfo = Artifactory.newBuildInfo()
