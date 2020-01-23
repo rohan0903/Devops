@@ -1,0 +1,42 @@
+1.Download the yasca-core-2.21 zip folder
+2.unzip the folder 
+3.Install the php 5 in the folder 
+Installation steps:-
+wget http://in1.php.net/distributions/php-5.3.29.tar.bz2
+tar -xvf php-5.3.29.tar.bz2
+apt-get update
+apt-get install build-essential
+apt-get install libxml2-dev
+cd php-5.3.29
+./configure
+make
+make test # Neither mandatory nor a bad idea.
+sudo make install
+/usr/local/bin/php -v
+4.Create a yascaConfigScript.sh file
+5.Add these lines in the above file 
+#!/bin/sh
+
+YASCA_HOME="/opt/yasca/yasca2.21"
+echo $YASCA_HOME
+cd $YASCA_HOME
+#eval exec `pwd`
+#eval exec `./yasca`
+#./yasca
+#eval exec `/opt/yasca/yasca2.21`
+rm -rf ${WORKSPACE}/YascaReports
+./yasca -o "${WORKSPACE}/YascaReports/Detailed" -r DetailedReport --ignore-ext jar,html,php,zip,png,gif,jpg,exe,xml,properties "${WORKSPACE}"
+#./yasca -o "${WORKSPACE}/YascaReports/xml" -r XMLReport --ignore-ext jar,html,js,php,java,jsp,zip,png,gif,jpg,exe "${WORKSPACE}"
+./yasca -o "${WORKSPACE}/YascaReports/xml" -r XMLReport --ignore-ext jar,html,php,zip,png,gif,jpg,exe,xml,properties "${WORKSPACE}"
+./yasca -o "${WORKSPACE}/YascaReports/console" -r ConsoleReport --ignore-ext jar,html,php,zip,png,gif,jpg,exe,xml,properties "${WORKSPACE}"
+./yasca -o "${WORKSPACE}/YascaReports/sql" -r SQLReport --ignore-ext jar,html,php,zip,png,gif,jpg,exe,xml,properties "${WORKSPACE}"
+#./yasca -o "${WORKSPACE}/YascaReports/csv " -r CSVReport --ignore-ext jar,html,js,php,java,jsp,zip,png,gif,jpg,exe,PROPERTIES "${WORKSPACE}"
+./yasca -o "${WORKSPACE}/YascaReports/csv " -r CSVReport --ignore-ext jar,html,php,zip,png,gif,jpg,exe,xml,properties "${WORKSPACE}"
+#./yasca -o "${WORKSPACE}/YascaReports/level1" --level 1 --ignore-ext jar,html,js,php,java,jsp,zip,png,gif,jpg,exe "${WORKSPACE}"
+./yasca -o "${WORKSPACE}/YascaReports/level1" --level 1 --ignore-ext jar,html,php,zip,png,gif,jpg,exe,xml,properties "${WORKSPACE}"
+./yasca -o "${WORKSPACE}/YascaReports/level2" --level 2 --ignore-ext jar,html,php,zip,png,gif,jpg,exe,xml,properties "${WORKSPACE}"
+./yasca -o "${WORKSPACE}/YascaReports/level3" --level 3 --ignore-ext jar,html,php,zip,png,gif,jpg,exe,xml,properties "${WORKSPACE}"
+./yasca -o "${WORKSPACE}/YascaReports/level4" --level 4 --ignore-ext jar,html,php,zip,png,gif,jpg,exe,xml,properties "${WORKSPACE}"
+./yasca -o "${WORKSPACE}/YascaReports/level5" --level 5 --ignore-ext jar,html,php,zip,png,gif,jpg,exe,xml,properties "${WORKSPACE}"
+./yasca -o "${WORKSPACE}/YascaReports/yasca" --yasca --ignore-ext jar,html,php,zip,png,gif,jpg,exe,xml,properties "${WORKSPACE}"
+
