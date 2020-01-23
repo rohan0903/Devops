@@ -15,7 +15,8 @@ rtMaven.deployer.artifactDeploymentPatterns.addExclude("pom.xml")
 buildInfo = Artifactory.newBuildInfo()
 buildInfo.retention maxBuilds: 20, maxDays: 7, deleteBuildArtifacts: true
 buildInfo.env.capture = true
-}    
+} 
+stage('rohan')   
     
 
     
